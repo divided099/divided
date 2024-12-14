@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Insults</title>
+    <style>
+        body {
+            font-family: "Courier New", monospace;
+            background-color: black;
+            color: limegreen;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .terminal {
+            padding: 20px;
+            border: 2px solid limegreen;
+            border-radius: 10px;
+            width: 60%;
+            text-align: center;
+        }
+        .terminal p {
+            font-size: 1.5em;
+        }
+        .blinking-cursor {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <p id="terminal-output"></p>
+        <span class="blinking-cursor">|</span>
+    </div>
+
+    <script>
+        const do_it = ["do it Z!", "do it fucking sissy", "do it bitch!"];
+        const dont_it = ["don't do it Z!", "run me again you fucking tranny"];
+        const other = [
+            "run me again slut!", 
+            "don't do it you fucking tranny", 
+            "don't do it you fucking dumb ass sissy brainwashed confused tranny furry femboy"
+        ];
+        
+        const options = do_it.concat(dont_it, other);
+        
+        // Get a random choice from the options
+        const randomChoice = options[Math.floor(Math.random() * options.length)] + "\n(:";
+        
+        // Display it in the terminal
+        document.getElementById("terminal-output").textContent = randomChoice;
+    </script>
+</body>
+</html>
