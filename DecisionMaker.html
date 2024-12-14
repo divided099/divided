@@ -25,25 +25,57 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            position: relative;
+            animation: glitch 3s infinite;
         }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(-5px, 5px);
+            }
+            100% {
+                transform: translate(5px, -5px);
+            }
+        }
+
         .terminal {
             padding: 20px;
             border: 2px solid limegreen;
             border-radius: 10px;
             width: 60%;
             text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px limegreen;
         }
+
         .terminal p {
             font-size: 1.5em;
         }
+
         .blinking-cursor {
             animation: blink 1s step-end infinite;
         }
+
         @keyframes blink {
             50% {
                 opacity: 0;
             }
         }
+
+        iframe {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 200px;
+            border: none;
+            pointer-events: none;
+        }
+
     </style>
 </head>
 <body>
@@ -53,10 +85,18 @@
     </div>
 
     <!-- Audio element for autoplay -->
-    <audio id="auto-play-audio" autoplay>
+    <audio id="auto-play-audio" autoplay loop>
         <source src="DecisionMade.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+
+    <!-- Embed YouTube video -->
+    <iframe 
+        src="https://www.youtube.com/embed/gKHOiTE_2sM?autoplay=1&controls=0&mute=1&loop=1&playlist=gKHOiTE_2sM" 
+        allow="autoplay; encrypted-media" 
+        frameborder="0" 
+        allowfullscreen>
+    </iframe>
 
     <script>
         const do_it = ["do it Z!", "do it fucking sissy", "do it bitch!"];
