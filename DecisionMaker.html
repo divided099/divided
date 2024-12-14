@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automated Decision Maker !!!</title>
     <meta property="og:title" content="Automated Decision Maker !!!">
-    <meta property="og:description" content="Automated decision maker with terminal style output.">
+    <meta property="og:description" content="Automated decision maker that leads Zayd">
     <meta property="og:image" content="favicon.png">
     <meta property="og:url" content="your-website-url-here">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Automated Decision Maker !!!">
-    <meta name="twitter:description" content="Automated decision maker with terminal style output.">
+    <meta name="twitter:description" content="Automated decision maker that leads Zayd">
     <meta name="twitter:image" content="favicon.png">
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
@@ -69,11 +69,22 @@
         
         const options = do_it.concat(dont_it, other);
         
-        // Get a random choice from the options
-        const randomChoice = options[Math.floor(Math.random() * options.length)] + "\n(:";
-        
-        // Display it in the terminal
-        document.getElementById("terminal-output").textContent = randomChoice;
+        // Function to simulate the Windows popup
+        function showPopup() {
+            const result = confirm("Ready for an automated decision to be made?\nRemember: you must make this decision, there's no going back Zayd (:");
+
+            if (result) {
+                // If the user clicks "OK", make the decision and show the terminal output
+                const randomChoice = options[Math.floor(Math.random() * options.length)] + "\n(:";
+                document.getElementById("terminal-output").textContent = randomChoice;
+            } else {
+                // If the user clicks "Cancel", redirect to the YouTube video
+                window.location.href = "https://youtu.be/TF9dkTwaW_A?si=Hpg4eo0MwZknYkP0";
+            }
+        }
+
+        // Trigger the popup when the page loads
+        window.onload = showPopup;
     </script>
 </body>
 </html>
